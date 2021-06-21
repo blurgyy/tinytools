@@ -33,3 +33,6 @@ fn main() -> Result<(), String> {
         Err("Not under a git repository".to_string())
     }
 }
+
+// Author: Blurgy <gy@blurgy.xyz>
+// Date:   Jun 22 2021, 01:09 [CST]
