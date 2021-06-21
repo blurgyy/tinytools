@@ -3,16 +3,23 @@ use std::{
     path::PathBuf,
     str::FromStr,
 };
+use structopt::StructOpt;
+
+#[derive(StructOpt)]
+struct Options {}
 
 /// Checks if current directory is in a git repository.
 ///
 /// If yes, output the absolute path to the nearest git repository;
 /// If no, returns non-zero status code.
 fn main() -> Result<(), String> {
-    let root = PathBuf::from_str("/").unwrap();
+    // Parse command line arguments.
+    Options::from_args();
+
+    let fs_root = PathBuf::from_str("/").unwrap();
     let git_dir = PathBuf::from_str(".git").unwrap();
 
-    while current_dir().unwrap() != root && !git_dir.is_dir() {
+    while current_dir().unwrap() != fs_root && !git_dir.is_dir() {
         match set_current_dir("..") {
             Err(_) => return Err("Failed changing directory".to_string()),
             _ => {}
