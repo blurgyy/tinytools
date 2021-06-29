@@ -1,6 +1,6 @@
 [package]
 name = "tinytools"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Gaoyang Zhang <gy@blurgy.xyz>"]
 edition = "2018"
 
