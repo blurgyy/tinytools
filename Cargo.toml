@@ -3,8 +3,12 @@ name = "tinytools"
 version = "0.2.1"
 authors = ["Gaoyang Zhang <gy@blurgy.xyz>"]
 edition = "2018"
+license = "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 structopt = "0.3"
+
+# Author: Blurgy <gy@blurgy.xyz>
+# Date:   Jun 29 2021, 22:50 [CST]
