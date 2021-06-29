@@ -6,16 +6,28 @@ use std::{
 use structopt::StructOpt;
 
 #[derive(StructOpt)]
+#[structopt(
+    name = "bak",
+    about = "Append a tilde (~) to the names of given files/directories."
+)]
 struct Options {
-    #[structopt(help = "The file(s)/director(y/ies) to append tilde.")]
+    #[structopt(
+        help = "The file(s)/director(y/ies) to append tilde.",
+        parse(from_os_str)
+    )]
     sources: Vec<PathBuf>,
     #[structopt(long = "--quiet", short = "-q", help = "Be quiet.")]
     quiet: bool,
 }
 
-/// Append a tilde (~) to the names of given files/directories.
 fn main() -> Result<(), String> {
     let mut conf = Options::from_args();
+    if conf.sources.len() == 0 {
+        if let Err(_) = Options::clap().print_help() {
+            return Err("Failed printing help message".to_string());
+        }
+        return Ok(());
+    }
 
     // Check for validity of given source paths.
     let mut invalid_sources: Vec<PathBuf> = Vec::new();

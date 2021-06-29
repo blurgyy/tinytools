@@ -6,12 +6,13 @@ use std::{
 use structopt::StructOpt;
 
 #[derive(StructOpt)]
-struct Options {}
-
+#[structopt(name = "gr")]
 /// Checks if current directory is in a git repository.
 ///
 /// If yes, output the absolute path to the nearest git repository;
 /// If no, returns non-zero status code.
+struct Options {}
+
 fn main() -> Result<(), String> {
     // Parse command line arguments.
     Options::from_args();
