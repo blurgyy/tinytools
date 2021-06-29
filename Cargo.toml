@@ -1,5 +1,6 @@
 [package]
 name = "tinytools"
+description = "A collection of tools that enhance your experience in shell."
 version = "0.2.1"
 authors = ["Gaoyang Zhang <gy@blurgy.xyz>"]
 edition = "2018"
