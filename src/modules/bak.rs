@@ -69,5 +69,6 @@ pub fn bak(sources: &mut Vec<PathBuf>, quiet: bool) -> Result<(), String> {
 
     Ok(())
 }
+
 // Author: Blurgy <gy@blurgy.xyz>
 // Date:   Jun 29 2021, 19:32 [CST]
