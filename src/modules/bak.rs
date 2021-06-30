@@ -58,7 +58,7 @@ pub fn bak(sources: &mut Vec<PathBuf>, quiet: bool) -> Result<(), String> {
         match rename(&source, &target) {
             Ok(()) => {
                 if !quiet {
-                    println!("{:?} -> {:?}", source, target);
+                    println!("renamed {:?} -> {:?}", source, target);
                 }
             }
             Err(err) => {
