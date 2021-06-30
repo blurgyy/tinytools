@@ -1,10 +1,14 @@
 [package]
 name = "tinytools"
 description = "A collection of tools that enhance your experience in shell."
-version = "0.2.1"
+version = "1.0.0"
 authors = ["Gaoyang Zhang <gy@blurgy.xyz>"]
 edition = "2018"
 license = "MIT"
+
+[[bin]]
+name = "tt"
+path = "src/main.rs"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
