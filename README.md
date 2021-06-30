@@ -4,7 +4,7 @@ A collection of tools that enhance your experience in shell.
 
 ## Installation
 
-With `cargo`:
+Installing with `cargo`:
 
 ```shell
 $ cargo install tinytools
@@ -14,10 +14,14 @@ $ cargo install tinytools
 
 ### `gr`
 
+#### Description
+
 Get the nearest git root above current working directory (if it exists).
 
-You want to quickly go to nearest git root of current project.  Use this shell
-function:
+#### Usage
+
+Sometimes you want to quickly go to nearest git root of current project.  Add
+this shell function to your shell's initialization script:
 
 ```shell
 function cg() {
@@ -28,9 +32,26 @@ function cg() {
 }
 ```
 
+Then, call `cg` to quickly jump from your cwd to git root:
+
+```shell
+$ pwd
+/home/r2d2/repos/tinytools/src/modules
+$ cg
+$ pwd
+/home/r2d2/repos/tinytools
+$ cd -
+$ pwd
+/home/r2d2/repos/tinytools/src/modules
+```
+
 ### `bak`
 
-Append a tilde (~) to the names of given files/directories.
+#### Description
+
+Append a tilde \(\~\) to the names of given files/directories.
+
+#### Usage
 
 ```shell
 $ alias bak="tt bak"
