@@ -21,7 +21,7 @@ enum TT {
         quiet: bool,
     },
     #[structopt(name = "gr")]
-    /// Get nearst git root above current working directory (if it exists).
+    /// Get the nearest git root above current working directory (if it exists).
     Gr {},
 }
 
