@@ -3,7 +3,7 @@ use std::{
     path::{Path, PathBuf},
 };
 
-pub fn get_target(path: PathBuf) -> PathBuf {
+fn get_target(path: PathBuf) -> PathBuf {
     return Path::new(&(path.to_str().unwrap().to_owned() + "~"))
         .to_path_buf();
 }
