@@ -36,5 +36,6 @@ fn main() -> Result<(), String> {
     }
     Ok(())
 }
+
 // Author: Blurgy <gy@blurgy.xyz>
 // Date:   Jun 30 2021, 12:39 [CST]
