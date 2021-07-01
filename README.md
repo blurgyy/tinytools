@@ -1,6 +1,11 @@
 # tinytools
 
-A collection of tools that enhance your experience in shell.
+A collection of tools that enhance your experience in shell.  This provides an
+executable named `tt`, which in turn provides the following utilities (more to
+be added):
+
+- `bak`: Append a tilde \(\~\) to the names of given files/directories.
+- `gr`: Get the nearest git root above current working directory (if it exists).
 
 ## Installation
 
@@ -13,12 +18,6 @@ $ cargo install tinytools
 ## Utilities
 
 ### `gr`
-
-#### Description
-
-Get the nearest git root above current working directory (if it exists).
-
-#### Usage
 
 Sometimes you want to quickly go to nearest git root of current project.  Add
 this shell function to your shell's initialization script:
@@ -46,12 +45,6 @@ $ pwd
 ```
 
 ### `bak`
-
-#### Description
-
-Append a tilde \(\~\) to the names of given files/directories.
-
-#### Usage
 
 ```shell
 $ alias bak="tt bak"
