@@ -4,8 +4,9 @@ A collection of tools that enhance your experience in shell.  This provides an
 executable named `tt`, which in turn provides the following utilities (more to
 be added):
 
-- `bak`: Append a tilde \(\~\) to the names of given files/directories.
-- `gr`: Get the nearest git root above current working directory (if it exists).
+- [`bak`][bak]: Append a tilde \(\~\) to the names of given files/directories.
+- [`debak`][debak]: Pop a tilde \(\~\) from the names of given files/directories.
+- [`gr`][gr]: Get the nearest git root above current working directory (if it exists).
 
 ## Installation
 
@@ -16,6 +17,31 @@ $ cargo install tinytools
 ```
 
 ## Utilities
+
+### `bak`
+
+Sometimes you want to quickly backup some file, this is typically done by
+suffixing the file with a tilde \(\~\).  When there are multiple files to be
+renamed, `bak` helps you to do this at ease:
+
+```shell
+$ alias bak="tt bak"
+$
+$ touch testfile
+$ mkdir testdir
+$ ls
+testdir/  testfile
+$ bak testdir testfile
+renamed "<absolute path>/testfile" -> "<absolute path>/testfile~"
+renamed "<absolute path>/testdir" -> "<absolute path>/testdir~"
+```
+
+`bak` aborts if the path after appending a tilde exists in the filesystem.
+
+### `debak`
+
+`debak` is the inverse of `bak` (see: [`bak`][bak]).  It does nothing (and
+aborts) when any of the given path does not end with a tilde.
 
 ### `gr`
 
@@ -44,16 +70,6 @@ $ pwd
 /home/r2d2/repos/tinytools/src/modules
 ```
 
-### `bak`
-
-```shell
-$ alias bak="tt bak"
-$
-$ touch testfile
-$ mkdir testdir
-$ ls
-testdir/  testfile
-$ bak testdir testfile
-renamed "<absolute path>/testfile" -> "<absolute path>/testfile~"
-renamed "<absolute path>/testdir" -> "<absolute path>/testdir~"
-```
+[bak]: #user-content-bak
+[debak]: #user-content-debak
+[gr]: #user-content-gr
