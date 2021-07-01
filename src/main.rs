@@ -7,7 +7,10 @@ use structopt::StructOpt;
 use modules::{bak::bak, gr::gr};
 
 #[derive(StructOpt)]
-#[structopt(name = "tinytools")]
+#[structopt(
+    name = "tinytools",
+    global_settings(&[structopt::clap::AppSettings::ColoredHelp])
+)]
 enum TT {
     #[structopt(name = "bak")]
     /// Append a tilde (~) to the names of given files/directories.
@@ -36,6 +39,5 @@ fn main() -> Result<(), String> {
     }
     Ok(())
 }
-
 // Author: Blurgy <gy@blurgy.xyz>
 // Date:   Jun 30 2021, 12:39 [CST]
