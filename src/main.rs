@@ -1,10 +1,9 @@
 mod modules;
 
 use std::path::PathBuf;
-
 use structopt::StructOpt;
 
-use modules::{bak::bak, gr::gr};
+use modules::{bak::bak, debak::debak, gr::gr};
 
 #[derive(StructOpt)]
 #[structopt(
@@ -16,7 +15,18 @@ enum TT {
     /// Append a tilde (~) to the names of given files/directories.
     Bak {
         #[structopt(
-            help = "The file(s)/director(y/ies) to append tilde.",
+            help = "The file(s)/director(y/ies) to be renamed.",
+            parse(from_os_str)
+        )]
+        sources: Vec<PathBuf>,
+        #[structopt(long = "--quiet", short = "-q", help = "Be quiet.")]
+        quiet: bool,
+    },
+    #[structopt(name = "debak")]
+    /// Pop a tilde (~) from the names of given files/directories
+    Debak {
+        #[structopt(
+            help = "The file(s)/director(y/ies) to be renamed.",
             parse(from_os_str)
         )]
         sources: Vec<PathBuf>,
@@ -32,6 +42,9 @@ fn main() -> Result<(), String> {
     match TT::from_args() {
         TT::Bak { mut sources, quiet } => {
             bak(&mut sources, quiet)?;
+        }
+        TT::Debak { mut sources, quiet } => {
+            debak(&mut sources, quiet)?;
         }
         TT::Gr {} => {
             gr()?;
