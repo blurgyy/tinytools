@@ -17,7 +17,14 @@ pub fn get_target(path: PathBuf) -> Result<PathBuf, String> {
     }
 }
 
-pub fn debak(sources: &mut Vec<PathBuf>, quiet: bool) -> Result<(), String> {
+pub fn debak(
+    source: PathBuf,
+    more_sources: Vec<PathBuf>,
+    quiet: bool,
+) -> Result<(), String> {
+    let sources = &mut vec![source];
+    sources.extend(more_sources);
+
     // Validate input paths.
     super::_shared_functions::validate_paths(sources.to_vec())?;
 

@@ -15,22 +15,32 @@ enum TT {
     /// Append a tilde (~) to the names of given files/directories.
     Bak {
         #[structopt(
-            help = "The file(s)/director(y/ies) to be renamed.",
+            help = "The file/directory to be renamed",
             parse(from_os_str)
         )]
-        sources: Vec<PathBuf>,
-        #[structopt(long = "--quiet", short = "-q", help = "Be quiet.")]
+        source: PathBuf,
+        #[structopt(
+            help = "More files/directories to be renamed",
+            parse(from_os_str)
+        )]
+        more_sources: Vec<PathBuf>,
+        #[structopt(long = "--quiet", short = "-q", help = "Be quiet")]
         quiet: bool,
     },
     #[structopt(name = "debak")]
     /// Pop a tilde (~) from the names of given files/directories
     Debak {
         #[structopt(
-            help = "The file(s)/director(y/ies) to be renamed.",
+            help = "The file/directory to be renamed",
             parse(from_os_str)
         )]
-        sources: Vec<PathBuf>,
-        #[structopt(long = "--quiet", short = "-q", help = "Be quiet.")]
+        source: PathBuf,
+        #[structopt(
+            help = "More files/directories to be renamed",
+            parse(from_os_str)
+        )]
+        more_sources: Vec<PathBuf>,
+        #[structopt(long = "--quiet", short = "-q", help = "Be quiet")]
         quiet: bool,
     },
     #[structopt(name = "gr")]
@@ -40,11 +50,19 @@ enum TT {
 
 fn main() -> Result<(), String> {
     match TT::from_args() {
-        TT::Bak { mut sources, quiet } => {
-            bak(&mut sources, quiet)?;
+        TT::Bak {
+            source,
+            more_sources,
+            quiet,
+        } => {
+            bak(source, more_sources, quiet)?;
         }
-        TT::Debak { mut sources, quiet } => {
-            debak(&mut sources, quiet)?;
+        TT::Debak {
+            source,
+            more_sources,
+            quiet,
+        } => {
+            debak(source, more_sources, quiet)?;
         }
         TT::Gr {} => {
             gr()?;
