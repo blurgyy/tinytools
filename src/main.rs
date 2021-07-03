@@ -54,21 +54,15 @@ fn main() -> Result<(), String> {
             source,
             more_sources,
             quiet,
-        } => {
-            bak(source, more_sources, quiet)?;
-        }
+        } => bak(source, more_sources, quiet),
         TT::Debak {
             source,
             more_sources,
             quiet,
-        } => {
-            debak(source, more_sources, quiet)?;
-        }
-        TT::Gr {} => {
-            gr()?;
-        }
+        } => debak(source, more_sources, quiet),
+        TT::Gr {} => gr(),
     }
-    Ok(())
 }
+
 // Author: Blurgy <gy@blurgy.xyz>
 // Date:   Jun 30 2021, 12:39 [CST]
