@@ -26,7 +26,6 @@ renamed, `bak` helps you to do this at ease:
 
 ```shell
 $ alias bak="tt bak"
-$
 $ touch testfile
 $ mkdir testdir
 $ ls
