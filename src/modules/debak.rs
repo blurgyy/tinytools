@@ -4,7 +4,7 @@ use std::{
     str::FromStr,
 };
 
-pub fn get_target(path: PathBuf) -> Result<PathBuf, String> {
+fn get_target(path: PathBuf) -> Result<PathBuf, String> {
     let mut full_path = path.to_str().unwrap().to_owned();
     if full_path.ends_with("~") {
         full_path.pop();
