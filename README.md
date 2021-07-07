@@ -49,9 +49,11 @@ this shell function to your shell's initialization script:
 
 ```shell
 function cg() {
-    local groot=$(tt gr 2>/dev/null)
-    if [[ -n $groot ]]; then
+    local groot
+    if groot=$(tt gr 2>/dev/null); then
         cd $groot
+    else
+        builtin return 1
     fi
 }
 ```
