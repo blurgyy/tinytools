@@ -45,17 +45,10 @@ aborts) when any of the given path does not end with a tilde.
 ### `gr`
 
 Sometimes you want to quickly go to nearest git root of current project.  Add
-this shell function to your shell's initialization script:
+this shell alias to your shell's initialization script:
 
 ```shell
-function cg() {
-    local groot
-    if groot=$(tt gr 2>/dev/null); then
-        cd $groot
-    else
-        builtin return 1
-    fi
-}
+$ alias cg='cd ${$(tt gr 2>/dev/null):-$PWD}'
 ```
 
 Then, call `cg` to quickly jump from your cwd to git root:
