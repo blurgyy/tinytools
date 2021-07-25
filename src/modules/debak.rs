@@ -1,8 +1,4 @@
-use std::{
-    fs::{canonicalize, rename},
-    path::PathBuf,
-    str::FromStr,
-};
+use std::{fs::rename, path::PathBuf, str::FromStr};
 
 fn get_target(path: PathBuf) -> Result<PathBuf, String> {
     let mut full_path = path.to_str().unwrap().to_owned();
@@ -31,7 +27,7 @@ pub fn debak(
     // Canonicalize to absolute paths.
     *sources = sources
         .iter()
-        .map(|source| canonicalize(source).unwrap())
+        .map(|source| super::_shared_functions::normalize_path(source))
         .collect();
 
     // Check for possible confliction of target paths.

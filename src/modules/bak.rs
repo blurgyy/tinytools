@@ -1,5 +1,5 @@
 use std::{
-    fs::{canonicalize, rename},
+    fs::rename,
     path::{Path, PathBuf},
 };
 
@@ -22,7 +22,7 @@ pub fn bak(
     // Canonicalize to absolute paths.
     *sources = sources
         .iter()
-        .map(|source| canonicalize(source).unwrap())
+        .map(|source| super::_shared_functions::normalize_path(source))
         .collect();
 
     // Check for possible confliction of target paths.
