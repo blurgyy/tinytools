@@ -31,8 +31,8 @@ $ mkdir testdir
 $ ls
 testdir/  testfile
 $ bak testdir testfile
-renamed "<absolute path>/testfile" -> "<absolute path>/testfile~"
-renamed "<absolute path>/testdir" -> "<absolute path>/testdir~"
+renamed "testfile" -> "testfile~"
+renamed "testdir" -> "testdir~"
 ```
 
 `bak` aborts if the path after appending a tilde exists in the filesystem.
@@ -55,13 +55,13 @@ Then, call `cg` to quickly jump from your cwd to git root:
 
 ```shell
 $ pwd
-/home/r2d2/repos/tinytools/src/modules
+[...]/tinytools/src/modules
 $ cg
 $ pwd
-/home/r2d2/repos/tinytools
+[...]/tinytools
 $ cd -
 $ pwd
-/home/r2d2/repos/tinytools/src/modules
+[...]/tinytools/src/modules
 ```
 
 [bak]: #user-content-bak
