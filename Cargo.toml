@@ -1,9 +1,11 @@
+cargo-features = ["strip"]
+
 [package]
 name = "tinytools"
 description = "A collection of tools that enhance your experience in shell."
 version = "1.1.2"
 authors = ["Gaoyang Zhang <gy@blurgy.xyz>"]
-edition = "2018"
+edition = "2021"
 license = "MIT"
 repository = "https://github.com/blurgyy/tinytools"
 keywords = ["cli", "shell"]
@@ -17,6 +19,13 @@ path = "src/main.rs"
 
 [dependencies]
 structopt = "0.3"
+
+[profile.release]
+strip = true
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
 
 # Author: Blurgy <gy@blurgy.xyz>
 # Date:   Jun 29 2021, 22:50 [CST]
